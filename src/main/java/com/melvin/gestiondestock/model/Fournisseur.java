@@ -1,13 +1,10 @@
 package com.melvin.gestiondestock.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
-
+@Builder
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
@@ -33,6 +30,9 @@ public class Fournisseur extends AbstractEntity{
 
     @Column(name = "telephone")
     private String telephone;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @OneToMany(mappedBy = "fournisseur")
     private List<CommandeFournisseur> commandeFournisseurs;
